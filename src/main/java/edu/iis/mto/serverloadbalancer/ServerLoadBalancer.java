@@ -20,7 +20,7 @@ public class ServerLoadBalancer {
     private Server findLessLoadedServer(Server[] servers, Vm vm) {
         Server lessLoadedServer = null;
         for (Server server : servers) {
-            if ((lessLoadedServer == null || server.currentLoadPercentage < lessLoadedServer.currentLoadPercentage) && server.canFit(vm)) {
+            if ((lessLoadedServer == null || server.getCurrentLoadPercentage() < lessLoadedServer.getCurrentLoadPercentage()) && server.canFit(vm)) {
                 lessLoadedServer = server;
             }
         }
